@@ -6,6 +6,7 @@ using MoonSharp.Interpreter.Compatibility;
 using MoonSharp.Interpreter.DataStructs;
 using MoonSharp.Interpreter.Interop.BasicDescriptors;
 using MoonSharp.Interpreter.Interop.StandardDescriptors;
+using ReferenceEqualityComparer = MoonSharp.Interpreter.DataStructs.ReferenceEqualityComparer;
 
 namespace MoonSharp.Interpreter.Interop
 {
@@ -22,8 +23,8 @@ namespace MoonSharp.Interpreter.Interop
 
 
 		object m_Lock = new object();
-		MultiDictionary<object, Closure> m_Callbacks = new MultiDictionary<object, Closure>(new ReferenceEqualityComparer());
-		Dictionary<object, Delegate> m_Delegates = new Dictionary<object, Delegate>(new ReferenceEqualityComparer());
+		MultiDictionary<object, Closure> m_Callbacks = new(new ReferenceEqualityComparer());
+		Dictionary<object, Delegate> m_Delegates = new(new ReferenceEqualityComparer());
 
 		/// <summary>
 		/// Tries to create a new StandardUserDataEventDescriptor, returning <c>null</c> in case the method is not 
