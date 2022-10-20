@@ -41,5 +41,10 @@ namespace MoonSharp.Interpreter
 		/// </summary>
 		public FuzzySymbolMatchingBehavior FuzzySymbolMatching { get; set; }
 
+		/// <summary>
+		/// Gets or sets a value indicating whether indexers on UserData can be used when
+		/// explicit definitions do not exist.
+		/// </summary>
+		public bool EnableUserDataIndexerFallback { get; set; }
 	}
 }
